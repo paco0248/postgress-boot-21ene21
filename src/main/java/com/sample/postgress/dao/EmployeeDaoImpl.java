@@ -29,6 +29,9 @@ public class EmployeeDaoImpl implements EmployeeDao{
 	public List<Employee> findAll() {
 		return template.query("select * from employee", new EmployeeRowMapper());
 	}
+
+
+
 	@Override
 	public void insertEmployee(Employee emp) {
 		 final String sql = "insert into employee(employeeId, employeeName , employeeAddress,employeeEmail) values(:employeeId,:employeeName,:employeeEmail,:employeeAddress)";
