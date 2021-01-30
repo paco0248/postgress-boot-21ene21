@@ -28,6 +28,7 @@ public class EmployeeDaoImpl implements EmployeeDao{
 	@Override
 	public List<Employee> findAll() {
 
+
 		
 		return template.query("select * from employee", new EmployeeRowMapper());
 	}
