@@ -1,4 +1,4 @@
-package com.sample.postgress.controller;
+package com.sample.postgress;
 
 import java.util.List;
 
@@ -12,15 +12,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sample.postgress.entity.Employee;
-import com.sample.postgress.service.EmployeeService;
-
 @RestController
 @RequestMapping("/postgressApp")
 public class ApplicationController {
 
-	@Resource 
-	EmployeeService employeeService;
+	@Resource
+	EmployeeServiceImpl employeeService;
 	
 	@GetMapping(value = "/employeeList")
 	public List<Employee> getEmployees() {

@@ -1,4 +1,4 @@
-package com.sample.postgress.dao;
+package com.sample.postgress;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -15,27 +15,23 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-import com.sample.postgress.entity.Employee;
-import com.sample.postgress.mapper.EmployeeRowMapper;
 @Repository
-public class EmployeeDaoImpl implements EmployeeDao{
+public class EmployeeDaoImpl {
 	
 	public EmployeeDaoImpl(NamedParameterJdbcTemplate template) {  
         this.template = template;  
 }  
 	NamedParameterJdbcTemplate template;  
 
-	@Override
 	public List<Employee> findAll() {
 
 
-		
+
 		return template.query("select * from employee", new EmployeeRowMapper());
 	}
 
 
 
-	@Override
 	public void insertEmployee(Employee emp) {
 		 final String sql = "insert into employee(employeeId, employeeName , employeeAddress,employeeEmail) values(:employeeId,:employeeName,:employeeEmail,:employeeAddress)";
 		 
@@ -48,8 +44,7 @@ public class EmployeeDaoImpl implements EmployeeDao{
 	        template.update(sql,param, holder);
 	 
 	}
-	
-	@Override
+
 	public void updateEmployee(Employee emp) {
 		 final String sql = "update employee set employeeName=:employeeName, employeeAddress=:employeeAddress, employeeEmail=:employeeEmail where employeeId=:employeeId";
 		 
@@ -62,8 +57,7 @@ public class EmployeeDaoImpl implements EmployeeDao{
 	        template.update(sql,param, holder);
 	 
 	}
-	
-	@Override
+
 	public void executeUpdateEmployee(Employee emp) {
 		 final String sql = "update employee set employeeName=:employeeName, employeeAddress=:employeeAddress, employeeEmail=:employeeEmail where employeeId=:employeeId";
 			 
@@ -84,8 +78,7 @@ public class EmployeeDaoImpl implements EmployeeDao{
 
 	 
 	}
-	
-	@Override
+
 	public void deleteEmployee(Employee emp) {
 		 final String sql = "delete from employee where employeeId=:employeeId";
 			 
