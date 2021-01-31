@@ -20,13 +20,11 @@ public class EmployeeDaoImpl {
 	
 	public EmployeeDaoImpl(NamedParameterJdbcTemplate template) {  
         this.template = template;  
-}  
+	}
+
 	NamedParameterJdbcTemplate template;  
 
 	public List<Employee> findAll() {
-
-
-
 		return template.query("select * from employee", new EmployeeRowMapper());
 	}
 

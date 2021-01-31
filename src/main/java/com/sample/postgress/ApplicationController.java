@@ -46,6 +46,37 @@ public class ApplicationController {
 		 employeeService.deleteEmployee(emp);
 	
 	}
-	
+	/////////////////////////////////////////////////////////////////////
+
+	@Resource
+	ClienteServiceImpl clienteService;
+
+	@GetMapping(value = "/clienteList")
+	public List<Cliente> getClientes() {
+		return clienteService.findAll();
+
+	}
+
+	@PostMapping(value = "/createCli")
+	public void createCliente(@RequestBody Cliente cli) {
+		clienteService.insertCliente(cli);
+
+	}
+	@PutMapping(value = "/updatecli")
+	public void updateCliente(@RequestBody Cliente cli) {
+		clienteService.updateCliente(cli);
+
+	}
+	@PutMapping(value = "/executeUpdateCli")
+	public void executeUpdateEmployee(@RequestBody Cliente cli) {
+		clienteService.executeUpdateCliente(cli);
+
+	}
+
+	@DeleteMapping(value = "/deleteCliById")
+	public void deleteEmployee(@RequestBody Cliente cli) {
+		clienteService.deleteCliente(cli);
+
+	}
 	
 }

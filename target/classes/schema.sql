@@ -6,3 +6,13 @@ CREATE TABLE employee
  employeeEmail varchar(100) DEFAULT NULL,
  PRIMARY KEY (employeeId)
 );
+
+CREATE TABLE cliente
+(
+ clienteName varchar(100) NOT NULL,
+  clienteId varchar(11) NOT NULL ,
+ clienteAddress varchar(100) DEFAULT NULL,
+ clienteEmail varchar(100) DEFAULT NULL,
+ PRIMARY KEY (clienteId)
+);
+
